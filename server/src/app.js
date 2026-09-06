@@ -25,6 +25,10 @@ if(process.env.ENV !== "production"){
 
 app.get('/api/health', (_req, res) => res.json({ success: true, status: 'healthy' }));
 
+app.get('/', (req, res) => {
+  res.send('Server is running successfully');
+});
+
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/workspaces', workspaceRoutes);
 app.use('/api/v1/projects', projectRoutes);
