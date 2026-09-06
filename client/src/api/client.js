@@ -1,11 +1,10 @@
 import axios from 'axios';
 
 /**
- * Same-origin API client: Vite proxies /api to the Express server, so the
- * httpOnly auth cookies flow automatically with withCredentials.
+ * Updated API client configuration supporting both local proxy and Vercel production deployment.
  */
 const api = axios.create({
-  baseURL: '/api/v1',
+  baseURL: import.meta.env.VITE_API_URL || '/api/v1',
   withCredentials: true,
 });
 
